@@ -1,16 +1,16 @@
-name: Login
+name: Login and Update Version
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '6 9 */5 * *' # 每 7 天一次，每次执行的时间是凌晨 09:06
+    - cron: '6 9 */7 * *' # 每 7 天一次，每次执行的时间是凌晨 09:06
 
 env:
   ACCOUNTS_JSON: ${{ secrets.ACCOUNTS_JSON }}
 
 jobs:
   login-and-update:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
