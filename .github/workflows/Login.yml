@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
   
   schedule:
-    - cron: '41 9 */7 * *'
+    - cron: '56 8 */7 * *'
 
 env:
   ACCOUNTS_JSON: ${{ secrets.ACCOUNTS_JSON }}
 
 jobs:  
   login:  
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-22.04 
   
     steps:  
       - name: Checkout repository  
@@ -32,4 +32,3 @@ jobs:
         run: |  
           set -e  
           xvfb-run --server-args="-screen 0 1280x1024x24" node login.js
-
